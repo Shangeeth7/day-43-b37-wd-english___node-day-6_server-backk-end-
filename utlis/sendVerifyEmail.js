@@ -26,7 +26,7 @@ module.exports = async (user, mailType) => {
     let mailOptions, emailContent;
     if (mailType === "verifyemail") {
       emailContent = `<div >
-      <h2 style="color:orange;" >MSC <span style="color:grey;" > | Motorcycle Servicing Company .</span> <h2> 
+      <h2 style="color:orange;" >URL <span style="color:grey;" > | URL Shortner .</span> <h2> 
      <br />
       <a  href="https://glowing-lolly-2bddda.netlify.app/verifyemail/${encryptedToken}"><span style="color:grey;font-size:15px;" >Click here to Verify  e-mail</span></a> 
       <br />
@@ -39,21 +39,21 @@ module.exports = async (user, mailType) => {
       <br />
       <br />
      
-      <span style="color:grey;font-size:10px;" > © Copyright 2022 - Motorycle Servicing Company All Rights Reserved.</span>
+      <span style="color:grey;font-size:10px;" > © Copyright 2022 - URL Shortner All Rights Reserved.</span>
       </div>`;
 
       mailOptions = {
         from: process.env.EMAIL,
         to: user.email,
-        subject: "Verify Email | MSC Login",
+        subject: "Verify Email | URL Login",
         html: emailContent,
       };
     } else {
       emailContent = `<div >
-      <h2 style="color:orange;" >MSC <span style="color:grey;" > | Motorcycle Servicing Company .</span> <h2> 
+      <h2 style="color:orange;" >URL <span style="color:grey;" > | URL Shortner .</span> <h2> 
      <br />
       <h2 style="color:grey;font-size:15px;">Hello <span style="color:orange;font-size:17px;">${user.name}</span></h2>
-      <p style="color:grey;font-size:15px;"> Welcome to Motorcycle Servicing Company
+      <p style="color:grey;font-size:15px;"> Welcome to URL Shortner
       </p>
       <br />
       <br />
@@ -65,13 +65,13 @@ module.exports = async (user, mailType) => {
       <br />
       <br />
      
-      <span style="color:grey;font-size:10px;" > © Copyright 2022 - Motorycle Servicing Company All Rights Reserved.</span>
+      <span style="color:grey;font-size:10px;" > © Copyright 2022 - URL Shortner All Rights Reserved.</span>
       </div>`;
 
       mailOptions = {
         from: process.env.EMAIL,
         to: user.email,
-        subject: "Welcome to MSC | A Motorcycle Servicing Company",
+        subject: "Welcome to URL | A URL Shortner",
         html: emailContent,
       };
     }

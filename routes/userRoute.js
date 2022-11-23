@@ -123,9 +123,9 @@ router.post("/resetpassword", async (req, res) => {
       });
       res.send({ success: true, message: "Password reset successfull" });
       const data = tokenData.userid;
-      const admin = await User.findOne({ isAdmin: true });
+
       const result = await User.findById(data);
-      await sendEmail(result, "afterreset", admin);
+      await sendEmail(result, "afterreset");
       const idData = tokenData.userid;
       await Token.findOneAndDelete({ _id: tokenData._id }, { userid: idData });
     } else {

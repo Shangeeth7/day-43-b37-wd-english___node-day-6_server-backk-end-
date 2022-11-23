@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const Token = require("../models/tokenModel");
 
-module.exports = async (user, mailType, admin) => {
+module.exports = async (user, mailType) => {
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -26,23 +26,19 @@ module.exports = async (user, mailType, admin) => {
     let mailOptions, emailContent;
     if (mailType === "afterreset") {
       emailContent = `<div>
-      <h2 style="color:orange;" >MSC <span style="color:grey;" > | Motorcycle Servicing Company .</span> <h2> 
+      <h2 style="color:orange;" >URL <span style="color:grey;" > | URL Shortner .</span> <h2> 
       
       <h2 style="color:grey;font-size:15px;">Hello <span style="color:orange;font-size:17px;">${user.name}</span></h2>
 
          <h4 style="color:grey;font-size:20px;" > Password Reset successfull</h4>
-          <p style="color:red;font-size:15px;"> If it's not you , Contact Admin</p>
-          <p style="color:grey;font-size:15px;"> Admin Details : </p>
-          <p style="color:grey;font-size:15px;">Name : <span style="color:orange;font-size:16px;" > ${admin.name}</span> </p>
-          <p style="color:grey;font-size:15px;">E-mail <span style="color:orange;font-size:16px;" > ${admin.email} </span></p>
-          <br />
+           <br />
           
           <br />
           <br />
           <br />
           <br />
          
-          <span style="color:grey;font-size:10px;" > © Copyright 2022 - Motorycle Servicing Company All Rights Reserved.</span>
+          <span style="color:grey;font-size:10px;" > © Copyright 2022 - URL Shortner All Rights Reserved.</span>
           </div>`;
 
       mailOptions = {
@@ -53,7 +49,7 @@ module.exports = async (user, mailType, admin) => {
       };
     } else if (mailType === "message") {
       emailContent = `<div>
-      <h2 style="color:orange;" >MSC <span style="color:grey;" > | Motorcycle Servicing Company .</span> <h2> 
+      <h2 style="color:orange;" >URL <span style="color:grey;" > | URL Shortner .</span> <h2> 
       <br />
       <h2 style="color:grey;"> Details of the user/viewer </h2>
         <h3 style="color:grey;font-size:15px;">Name :  <span style="color:orange;font-size:16px;" >${user.name}</span> </h3>
@@ -67,7 +63,7 @@ module.exports = async (user, mailType, admin) => {
           <br />
           <br />
          
-          <span style="color:grey;font-size:10px;" > © Copyright 2022 - Motorycle Servicing Company All Rights Reserved.</span>
+          <span style="color:grey;font-size:10px;" > © Copyright 2022 - URL Shortner All Rights Reserved.</span>
           </div>`;
 
       mailOptions = {
@@ -78,7 +74,7 @@ module.exports = async (user, mailType, admin) => {
       };
     } else {
       emailContent = `<div>
-      <h2 style="color:orange;" >MSC <span style="color:grey;" > | Motorcycle Servicing Company .</span> <h2> 
+      <h2 style="color:orange;" >URL <span style="color:grey;" > | URL Shortner .</span> <h2> 
       <br />
       <a  href="https://glowing-lolly-2bddda.netlify.app/resetpassword/${encryptedToken}"><span style="color:grey;font-size:15px;" >Click here to Reset Password</span></a> 
       <br />
@@ -91,7 +87,7 @@ module.exports = async (user, mailType, admin) => {
       <br />
       <br />
      
-      <span style="color:grey;font-size:10px;" > © Copyright 2022 - Motorycle Servicing Company All Rights Reserved.</span>
+      <span style="color:grey;font-size:10px;" > © Copyright 2022 - URL Shortner All Rights Reserved.</span>
       </div>`;
 
       mailOptions = {
