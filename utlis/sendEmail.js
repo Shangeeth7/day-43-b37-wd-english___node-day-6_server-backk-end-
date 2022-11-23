@@ -80,7 +80,7 @@ module.exports = async (user, mailType, admin) => {
       emailContent = `<div>
       <h2 style="color:orange;" >MSC <span style="color:grey;" > | Motorcycle Servicing Company .</span> <h2> 
       <br />
-      <a  href="http://localhost:3000/resetpassword/${encryptedToken}"><span style="color:grey;font-size:15px;" >Click here to Reset Password</span></a> 
+      <a  href="https://glowing-lolly-2bddda.netlify.app/resetpassword/${encryptedToken}"><span style="color:grey;font-size:15px;" >Click here to Reset Password</span></a> 
       <br />
       <br />
       <br />
